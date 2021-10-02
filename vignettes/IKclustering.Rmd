@@ -105,8 +105,8 @@ AMI(irisCluster$cluster,iris$Species)
 ```{r K-medoids clustering based on Euclidean distance, echo=TRUE, warning=FALSE}
 library(kmed)
 set.seed(136)
-Sim <- IKSimilarity(df[,1:4],df[,1:4],4,200,FALSE)
-d <- 1-Sim # get the dissimilarity/distance matrix
+Sim <- IKSimilarity(df[,1:4],df[,1:4],4,200)
+d <- 1-as.matrix(Sim) # get the dissimilarity/distance matrix
 sfkm <- fastkmed(d, ncluster = 3, iterate = 100)
 table(sfkm$cluster, iris$Species)
 ```
