@@ -5,6 +5,8 @@ This R package uses Voronoi diagrams to split the data space and calculate Isola
 
 IKFeature function will return the finite binary features based on the kernel feature map. IKSimilarity function calculates the similarity kernel measure. Therefore, we can use IKFeature for algorithms that require the features as an input (e.g., k-means), while use IKSimilarity for algorithms that require the similarity/dissimilarity matrix as an input (e.g., k-medoids).
 
+A demonstration of using Isolation Kernel for clustering in R is published: https://rpubs.com/zhuye88/IK
+
 [1] Qin, X., Ting, K.M., Zhu, Y. and Lee, V.C., 2019, July. Nearest-neighbour-induced isolation similarity and its impact on density-based clustering. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 33, pp. 4755-4762).
 
 [2] Ting, K.M., Xu, B.C., Washio, T. and Zhou, Z.H., 2020, August. Isolation Distributional Kernel: A New Tool for Kernel based Anomaly Detection. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 198-206).
