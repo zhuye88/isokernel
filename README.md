@@ -38,7 +38,7 @@ t <- 200
 FA <- IKFeature(A,S,psi=4,t=200) # Kernel space features for A
 FB <- IKFeature(B,S,psi=4,t=200) # Kernel space features for B
 SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. 
-# Some algorithms need a full matrix as an input. You can use as.matrix(SimAB) to suit it. 
+# If a algorithm needs a full matrix as an input, then you can use as.matrix(SimAB) to suit it. 
 ```
 
 **A demonstration of using Isolation Kernel for clustering in R is published: https://rpubs.com/zhuye88/IK**
