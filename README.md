@@ -53,7 +53,7 @@ This R package uses Voronoi diagrams to split the data space and calculate Isola
 
 IKFeature function will return the finite binary features based on the kernel feature map. IKSimilarity function calculates the similarity kernel measure. Therefore, we can use IKFeature for algorithms that require the features as an input (e.g., k-means), while use IKSimilarity for algorithms that require the similarity/dissimilarity matrix as an input (e.g., k-medoids).
 
-Parameter psi is the number of cells in each Voronoi diagram, it should be large if there are more clusters or more complex structures in the data, but it must be less than the Sdata size. It could be [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]. Parametert is the number of Voronoi diagrams, the higher t value, the more stable the result, but cost more time to run.
+Parameter *psi* is the number of cells in each Voronoi diagram, it should be large if there are more clusters or more complex structures in the data, but it must be less than the Sdata size. It could be [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]. Parameter *t* is the number of Voronoi diagrams, the higher t value, the more stable the result, but cost more time to run.
 
 [1] Qin, X., Ting, K.M., Zhu, Y. and Lee, V.C., 2019, July. Nearest-neighbour-induced isolation similarity and its impact on density-based clustering. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 33, pp. 4755-4762).
 
