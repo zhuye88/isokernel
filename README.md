@@ -2,6 +2,7 @@
 
 https://cran.r-project.org/web/packages/isokernel/index.html
 
+@YE ZHU, Deakin University
 
 ### Install and load the package
 
