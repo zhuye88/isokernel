@@ -12,13 +12,14 @@ install.packages("isokernel")
 library(isokernel)
 ```
 ### Get features based on the kernel feature map 
+By default, IKFeature returns a sparse matrix to save the memory as Sp=TRUE. It can be converted to a full matrix with Sp=FALSE, or using as.matrix() on the sparse matrix. 
 
 ```r
 df <- iris
 IKFeatures <- IKFeature(df[,1:4],psi=4,t=200)
 ```
 ### Calculate the pairwise Isolation kernel similarity
-The similarity matrix is the inner products between all pairs of data in the feature space. 
+The similarity matrix is the inner products between all pairs of data in the feature space.  
 
 ```r
 df <- iris
@@ -34,7 +35,7 @@ S <- rbind(A,B)
 t <- 200
 FA <- IKFeature(A,S,psi=4,t=200) # Kernel space features for A
 FB <- IKFeature(B,S,psi=4,t=200) # Kernel space features for B
-SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. 
+SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. as.matrix() can convert the sparse matrix to a full matrix.
 ```
 
 **A demonstration of using Isolation Kernel for clustering in R is published: https://rpubs.com/zhuye88/IK**
