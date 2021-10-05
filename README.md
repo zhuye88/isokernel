@@ -37,8 +37,10 @@ S <- rbind(A,B)
 t <- 200
 FA <- IKFeature(A,S,psi=4,t=200) # Kernel space features for A
 FB <- IKFeature(B,S,psi=4,t=200) # Kernel space features for B
+
 SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. 
-# If a algorithm needs a full matrix as an input, then you can use as.matrix(SimAB) to suit it. 
+# If an algorithm needs a full similarity matrix as an input, then you can use as.matrix(SimAB) to suit it. 
+# To get a dissimilarity matrix, just simple use 1-SimAB.
 ```
 
 **A demonstration of using Isolation Kernel for clustering in R is published: https://rpubs.com/zhuye88/IK**
