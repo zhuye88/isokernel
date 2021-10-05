@@ -14,8 +14,11 @@ library(isokernel)
 ### Get features based on the kernel feature map 
 ```r
 df <- iris
-SIKFeatures <- IKFeature(df[,1:4],psi=4,t=200) # SIKFeatures is a sparse matrix. By default, IKFeature returns a sparse matrix to save the memory as Sp=TRUE.
-FIKFeatures <- IKFeature(df[,1:4],psi=4,t=200,Sp=FALSE) # FIKFeatures is a full matrix. It is the same as using as.matrix(SIKFeatures).
+SIKFeatures <- IKFeature(df[,1:4],psi=4,t=200) # SIKFeatures is a sparse matrix. 
+# By default, IKFeature returns a sparse matrix to save the memory as Sp=TRUE.
+
+FIKFeatures <- IKFeature(df[,1:4],psi=4,t=200,Sp=FALSE) # FIKFeatures is a full matrix. 
+# It is the same as using as.matrix(SIKFeatures).
 ```
 ### Calculate the pairwise Isolation kernel similarity
 The similarity matrix is the inner products between all pairs of data in the feature space.  
@@ -34,7 +37,8 @@ S <- rbind(A,B)
 t <- 200
 FA <- IKFeature(A,S,psi=4,t=200) # Kernel space features for A
 FB <- IKFeature(B,S,psi=4,t=200) # Kernel space features for B
-SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. as.matrix() can convert the sparse matrix to a full matrix.
+SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the feature space. 
+# as.matrix() can convert the sparse matrix to a full matrix.
 ```
 
 **A demonstration of using Isolation Kernel for clustering in R is published: https://rpubs.com/zhuye88/IK**
@@ -42,7 +46,7 @@ SimAB <- FA%*%t(as.matrix(FB))/t  # dot product between all pairs of data in the
 # Description 
 Different kernel methods have been developed to improve the performance of existing distance-based clustering algorithms such as kernel k-means and spectral clustering. Recently, the Isolation Kernel [1,2,3,4] has been proposed to be a more effective data-dependent similarity measure such that *two points in a sparse region are more similar than two points of equal inter-point distance in a dense region*. This measure is adaptive to local data distribution and has *more flexibility in capturing the characteristics of the local data distribution*. It has been shown promising performance on density and distance-based classification and clustering problems.
 
-This R package uses Voronoi diagrams to split the data space and calculate Isolation kernel similarity. Based on this implementation, the feature in the Isolation kernel space is the index of the cell in Voronoi diagrams. Each point is represented as a binary vector such that only the cell the point falling into is 1. The similarity matrix is the inner products between all pairs of data in the feature space.
+This R package uses Voronoi diagrams to split the data space and calculate Isolation kernel similarity [1]. Based on this implementation, the feature in the Isolation kernel space is the index of the cell in Voronoi diagrams. Each point is represented as a binary vector such that only the cell the point falling into is 1. The similarity matrix is the inner products between all pairs of data in the feature space.
 
 IKFeature function will return the finite binary features based on the kernel feature map. IKSimilarity function calculates the similarity kernel measure. Therefore, we can use IKFeature for algorithms that require the features as an input (e.g., k-means), while use IKSimilarity for algorithms that require the similarity/dissimilarity matrix as an input (e.g., k-medoids).
 
