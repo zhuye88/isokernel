@@ -12,11 +12,10 @@ install.packages("isokernel")
 library(isokernel)
 ```
 ### Get features based on the kernel feature map 
-By default, IKFeature returns a sparse matrix to save the memory as Sp=TRUE. It can be converted to a full matrix with Sp=FALSE, or using as.matrix() on the sparse matrix. 
-
 ```r
 df <- iris
-IKFeatures <- IKFeature(df[,1:4],psi=4,t=200)
+SIKFeatures <- IKFeature(df[,1:4],psi=4,t=200) # SIKFeatures is a sparse matrix. By default, IKFeature returns a sparse matrix to save the memory as Sp=TRUE.
+FIKFeatures <- IKFeature(df[,1:4],psi=4,t=200,Sp=FALSE) # FIKFeatures is a full matrix. It is the same as using as.matrix(SIKFeatures).
 ```
 ### Calculate the pairwise Isolation kernel similarity
 The similarity matrix is the inner products between all pairs of data in the feature space.  
