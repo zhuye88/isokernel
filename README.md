@@ -2,7 +2,6 @@
 
 https://cran.r-project.org/web/packages/isokernel/index.html
 
-Installation
 
 ### Install and load the package
 
@@ -46,6 +45,8 @@ Different kernel methods have been developed to improve the performance of exist
 This R package uses Voronoi diagrams to split the data space and calculate Isolation kernel similarity. Based on this implementation, the feature in the Isolation kernel space is the index of the cell in Voronoi diagrams. Each point is represented as a binary vector such that only the cell the point falling into is 1. The similarity matrix is the inner products between all pairs of data in the feature space.
 
 IKFeature function will return the finite binary features based on the kernel feature map. IKSimilarity function calculates the similarity kernel measure. Therefore, we can use IKFeature for algorithms that require the features as an input (e.g., k-means), while use IKSimilarity for algorithms that require the similarity/dissimilarity matrix as an input (e.g., k-medoids).
+
+Parameter psi is the number of cells in each Voronoi diagram, it should be large if there are more clusters or more complex structures in the data, but it must be less than the Sdata size. It could be [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]. Parametert is the number of Voronoi diagrams, the higher t value, the more stable the result, but cost more time to run.
 
 [1] Qin, X., Ting, K.M., Zhu, Y. and Lee, V.C., 2019, July. Nearest-neighbour-induced isolation similarity and its impact on density-based clustering. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 33, pp. 4755-4762).
 
